@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Angeles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .content-section {
+            display: none;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            max-width: 800px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .active {
+            display: block;
+        }
+
+        h2 {
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Estilo del Catálogo */
+        .catalogo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .item-catalogo {
+            border: 2px solid #000;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            transition: transform 0.2s;
+            background-color: #fff;
+        }
+
+        .item-catalogo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* ESTA ES LA PARTE CLAVE: Controla el tamaño de la imagen */
+        .gato-image {
+            width: 100%;       /* Ocupa el ancho de su cuadrito */
+            height: 180px;     /* Altura fija para que todos los cuadros se vean iguales */
+            object-fit: cover; /* Evita que la imagen se estire feo */
+            border-radius: 4px;
+            margin-bottom: 10px;
+            display: block;    /* Asegura que se comporte como bloque */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: #fff;
+            margin-top: auto;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        input[type="submit"] {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Angeles</h1>
+        <nav>
+            <ul>
+                <li><a onclick="showSection('sobre-mi')">Sobre mí</a></li>
+                <li><a onclick="showSection('intereses')">Intereses</a></li>
+                <li><a onclick="showSection('catalogo')">Catálogo</a></li>
+                <li><a onclick="showSection('contacto')">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="sobre-mi" class="content-section active">
+        <h2>Sobre mí</h2>
+        <p>Hola, me llamo Angeles. Estudio en el Politécnico Madre Rafaela Ybarra en la técnica de informática. También realizo un curso de inglés en el Crossover los sábados. Tengo 15 años y vivo con mis padres y mis dos hermanas.</p>
+        <br>
+        <h3>El propósito con esta página es que me conozcan más a fondo</h3>
+        <ul>mis intereses</ul>
+        <ul>mis mascotas</ul>
+        <ul>mi contacto</ul>
+    </section>
+   
+    <section id="intereses" class="content-section">
+        <h2>Mis Intereses</h2>
+        <ul>
+            <li>Voleibol (Deporte favorito)</li>
+            <li>Cuidado de mascotas</li>
+            <li>dibujar</li>
+        </ul>
+    </section>
+
+    <section id="catalogo" class="content-section">
+        <h2>Catálogo de mis mascotas</h2>
+        <div class="catalogo-grid">
+            
+            <div class="item-catalogo">
+                <h3>Itachi</h3>
+                <img src="WhatsApp Image 2026-04-17 at 8.37.46 AM.jpeg" alt="Mi gato Itachi" class="gato-image"> 
+                <p>Mi gato Itachi</p>
+            </div>
+
+            <div class="item-catalogo">
+
+                <h3>Frijol</h3>
+                <p>Mi Tortuga</p>
+            </div>
+
+            <div class="item-catalogo">
+                 <img src="Captura de pantalla 2026-04-17 115936.png" alt="Mi Perra" class="perro-image"> 
+                <h3>Popi</h3>
+                <p>Mi Pastor Alemán</p>
+            </div>
+
+            <div class="item-catalogo">
+                <h3>Sakura</h3> 
+                <p>Mi perra Doberman</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="content-section">
+        <h2>Contacto, envíame un mensaje</h2>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" placeholder="Escribe tu nombre">
+            
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" rows="4" placeholder="¿Qué quieres decirme?"></textarea>
+            
+            <input type="submit" value="Enviar Mensaje">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Angeles. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
